@@ -33,7 +33,7 @@ async def _(event):
     reply_message = await event.get_reply_message()
     whoiam = await event.client(GetFullUserRequest(ultroid_bot.uid))
     if whoiam.about:
-        mybio = str(ultroid_bot.me.id) + "01"
+        mybio = f'{str(ultroid_bot.me.id)}01'
         udB.set(f"{mybio}", whoiam.about)  # saving bio for revert
     udB.set(f"{ultroid_bot.uid}02", whoiam.user.first_name)
     if whoiam.user.last_name:
@@ -68,19 +68,14 @@ async def _(event):
 
 @ultroid_cmd(pattern="revert$")
 async def _(event):
+    mybio = f'{str(ultroid_bot.me.id)}01'
     name = OWNER_NAME
-    ok = ""
-    mybio = str(ultroid_bot.me.id) + "01"
-    bio = "Error : Bio Lost"
-    chc = udB.get(mybio)
-    if chc:
-        bio = chc
+    bio = chc if (chc := udB.get(mybio)) else "Error : Bio Lost"
     fname = udB.get(f"{ultroid_bot.uid}02")
     lname = udB.get(f"{ultroid_bot.uid}03")
     if fname:
         name = fname
-    if lname:
-        ok = lname
+    ok = lname or ""
     n = 1
     client = event.client
     await client(
@@ -105,12 +100,11 @@ async def get_full_user(event):
                     or previous_message.forward.channel_id
                 )
             )
-            return replied_user, None
         else:
             replied_user = await event.client(
                 GetFullUserRequest(previous_message.sender_id)
             )
-            return replied_user, None
+        return replied_user, None
     else:
         input_str = None
         try:

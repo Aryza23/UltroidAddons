@@ -57,6 +57,5 @@ async def random_magic(event):
         text = f"**{req['data']['quote']}**\n\n~ {req['data']['author']}"
     if text and not file:
         return await eor(event, text)
-    else:
-        await event.reply(text, file=file)
-        await event.delete()
+    await event.reply(text, file=file)
+    await event.delete()
