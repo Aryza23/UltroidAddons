@@ -7,10 +7,10 @@
 """
 ✘ Commands Available -
 
-• `{i}weeb <text>` 
+• `{i}weeb <text>`
     turns text to 山乇乇乃 font
 
-• `{i}tantext <text>` 
+• `{i}tantext <text>`
     turns text to ᎿᎯᏁᎿᏋﾒᎿ font
 
 • `{i}linetext <text>`
@@ -363,7 +363,7 @@ async def weebify(ult):
         if normiecharacter in normiefont:
             weebycharacter = weebyfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, weebycharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="tantext ?(.*)")
@@ -380,7 +380,7 @@ async def tantxt(ult):
         if normiecharacter in normiefont:
             tanycharacter = tantextfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, tanycharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="linetext ?(.*)")
@@ -413,7 +413,7 @@ async def boxtxt(ult):
         if normiecharacter in normiefont:
             boxcharacter = boxtextfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, boxcharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="bubbletext ?(.*)")
@@ -429,7 +429,7 @@ async def bubbletxt(ult):
         if normiecharacter in normiefont:
             bubblecharacter = bubbletextfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, bubblecharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="cursive ?(.*)")
@@ -445,7 +445,7 @@ async def cursive(ult):
         if normiecharacter in normiefont:
             cursivecharacter = cursivefont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, cursivecharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="greekify ?(.*)")
@@ -461,7 +461,7 @@ async def greektext(ult):
         if normiecharacter in normiefont:
             greekcharacter = greekfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, greekcharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="sorcify ?(.*)")
@@ -479,7 +479,7 @@ async def sorcerertext(ult):
         if normiecharacter in normiefont:
             sorcerercharacter = sorcererfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, sorcerercharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="fraktify ?(.*)")
@@ -496,7 +496,7 @@ async def frakturtext(ult):
         if normiecharacter in normiefont:
             frakturcharacter = frakturfont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, frakturcharacter)
-    await eor(ult, string)
+    await ult.eor(string)
 
 
 @ultroid_cmd(pattern="rusify ?(.*)")
@@ -512,4 +512,4 @@ async def rusitext(ult):
         if normiecharacter in normiefont:
             rusicharacter = rusifont[normiefont.index(normiecharacter)]
             string = string.replace(normiecharacter, rusicharacter)
-    await eor(ult, string)
+    await ult.eor(string)
